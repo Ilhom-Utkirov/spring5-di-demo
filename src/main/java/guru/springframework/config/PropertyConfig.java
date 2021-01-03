@@ -15,15 +15,16 @@ import org.springframework.core.env.Environment;
 //code below is working but it was introced in Spring 4
 //@PropertySource({"classpath:datasource.properties", "classpath:jms.properties"})
 //In spring 5
+
 @PropertySources({
         @PropertySource("classpath:datasource.properties"),
         @PropertySource("classpath:jms.properties")
 })
 public class PropertyConfig {
-
+/*
      @Autowired
      Environment environment;
-
+*/
     @Value("${guru.username}")
     String user;
 
@@ -57,7 +58,8 @@ public class PropertyConfig {
     public FakeDataSource fakeDataSource(){
         FakeDataSource fakeDataSource = new FakeDataSource();
         //fakeDataSource.setUser(user);
-        fakeDataSource.setUser(environment.getProperty("MINE_USERNAME"));
+        //fakeDataSource.setUser(environment.getProperty("MINE_USERNAME"));
+        fakeDataSource.setUser(user);
         fakeDataSource.setPassword(password);
         fakeDataSource.setUrl(url);
         return fakeDataSource;
