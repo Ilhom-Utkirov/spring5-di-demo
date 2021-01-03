@@ -1,0 +1,12 @@
+guru:
+  jms:
+      username: JMS Username yml
+      password: somepas yml
+      url: SOme url yml
+
+---
+spring:
+  profiles: de
+guru:
+  jms:
+    username: J MS %%%% User duetsch Profile
